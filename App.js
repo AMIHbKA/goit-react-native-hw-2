@@ -1,20 +1,21 @@
 import { StatusBar } from "expo-status-bar";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { RegistrationScreen } from "./src/components/RegistrationScreen/RegistrationScreen";
+import { RegistrationScreen2 } from "./src/components/RegistrationScreen/RegistrationScreen2";
 
 export default function App() {
   return (
     <>
-      <RegistrationScreen />
+      <RegistrationScreen2 />
     </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+// });

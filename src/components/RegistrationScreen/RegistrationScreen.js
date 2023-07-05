@@ -1,64 +1,103 @@
 import { useState } from "react";
 import {
+  Button,
   Dimensions,
   Image,
   ImageBackground,
+  Keyboard,
+  KeyboardAvoidingView,
+  Pressable,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import { AddPhotoIcon, HomeIcon } from "../UI/icons";
 
 const image = require("../../images/BG.png");
+
 export const RegistrationScreen = () => {
-  const [showPassword, setShowPasswor] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
   return (
-    <ImageBackground style={styles.background} source={image}>
-      <View style={styles.formLoyut}>
-        <View style={styles.wrapper}>
-          <Image style={styles.photo}></Image>
-          <TouchableOpacity style={styles.button}>
-            <AddPhotoIcon />
-          </TouchableOpacity>
-        </View>
+    <View style={styles.container}>
+      <ImageBackground style={styles.background} source={image}>
+        <View style={styles.formLoyut}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+          >
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              <View>
+                <View style={styles.wrapper}>
+                  <Image style={styles.photo}></Image>
+                  <TouchableOpacity style={styles.buttonAddPhoto}>
+                    <AddPhotoIcon />
+                  </TouchableOpacity>
+                </View>
+                <Text style={styles.text}>Реєстрація</Text>
+                <View
+                  style={{
+                    marginTop: 33,
+                  }}
+                >
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Логін"
+                    placeholderTextColor="#BDBDBD"
+                  />
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Адреса електронної пошти"
+                    placeholderTextColor="#BDBDBD"
+                  />
+                  <View style={{ borderWidth: 1 }}>
+                    <TextInput
+                      style={[styles.input, styles.inputWithoutMargin]}
+                      placeholder="Пароль"
+                      placeholderTextColor="#BDBDBD"
+                      secureTextEntry={!showPassword}
+                    />
+                    <Pressable onPress={handleShowPassword}>
+                      <Text
+                        style={[styles.buttonShowPassword, styles.textStyle1]}
+                      >
+                        Показати
+                      </Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </View>
+            </TouchableWithoutFeedback>
+          </KeyboardAvoidingView>
 
-        <Text style={styles.text}>Реєстрація</Text>
-        <View
-          style={{
-            borderWidth: 1,
-            marginTop: 33,
-          }}
-        >
-          <TextInput
-            style={styles.input}
-            placeholder="Логін"
-            placeholderTextColor="#BDBDBD"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Адреса електронної пошти"
-            placeholderTextColor="#BDBDBD"
-          />
-          <TextInput
-            style={[styles.input, styles.inputWithoutMargin]}
-            placeholder="Пароль"
-            placeholderTextColor="#BDBDBD"
-          />
+          <TouchableOpacity style={styles.buttonRegister}>
+            <Text style={styles.buttonRegisterText}>Зареєструватися</Text>
+          </TouchableOpacity>
+          <Pressable>
+            <Text style={[styles.textStyle1, styles.registerTextPosition]}>
+              Вже є акаунт? Увійти
+            </Text>
+          </Pressable>
         </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   background: {
     flex: 1,
-    resizeMode: "cover",
     justifyContent: "flex-end",
   },
+
   photo: {
     position: "absolute",
     top: -60,
@@ -84,10 +123,14 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
     color: "#212121",
   },
+  textStyle1: {
+    color: "#1B4371",
+  },
   wrapper: {
     alignItems: "center",
+    flex: 1,
   },
-  button: {
+  buttonAddPhoto: {
     justifyContent: "center",
     alignItems: "center",
     top: 15,
@@ -112,5 +155,27 @@ const styles = StyleSheet.create({
   },
   inputWithoutMargin: {
     marginBottom: 0,
+  },
+  buttonShowPassword: {
+    position: "absolute",
+    bottom: 15,
+    right: 16,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonRegister: {
+    marginTop: 43,
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+    borderRadius: 100,
+    backgroundColor: "#FF6C00",
+  },
+  buttonRegisterText: {
+    textAlign: "center",
+    color: "#fff",
+  },
+  registerTextPosition: {
+    marginTop: 16,
+    textAlign: "center",
   },
 });
