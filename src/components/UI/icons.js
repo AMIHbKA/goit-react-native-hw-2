@@ -1,7 +1,7 @@
 import React from "react";
 import { Svg, Path, G, Circle } from "react-native-svg";
 
-export const DeletePhotoIcon = () => {
+export const DelPhotoIcon = () => {
   return (
     <Svg
       width="37"
