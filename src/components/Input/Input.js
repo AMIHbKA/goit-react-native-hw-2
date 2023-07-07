@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { pixels } from "../../utility/adptivePixels";
 
 export const Input = (props) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -33,13 +34,14 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     borderRadius: 5,
-    padding: 16,
-    height: 50,
+    paddingVertical: pixels.height[16],
+    paddingHorizontal: pixels.width[16],
+    height: pixels.height[50],
     width: "100%",
     color: "#000",
     borderColor: "#E8E8E8",
     backgroundColor: "#F6F6F6",
-    fontSize: 16,
+    fontSize: pixels.height[16],
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: 1.2,
@@ -50,8 +52,9 @@ const styles = StyleSheet.create({
   },
   buttonShowPassword: {
     position: "absolute",
-    bottom: 15,
-    right: 16,
+    bottom: pixels.height[15],
+    right: pixels.width[16],
+    fontSize: pixels.height[16],
     justifyContent: "center",
     alignItems: "center",
     color: "#1B4371",

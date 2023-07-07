@@ -1,8 +1,9 @@
 import { StyleSheet, View } from "react-native";
+import { pixels } from "../../utility/adptivePixels";
 
 export const FormLayout = ({ children, height }) => {
   return (
-    <View style={[styles.Layout, { height: height || "72%" }]}>{children}</View>
+    <View style={[styles.Layout, { height: height || "70%" }]}>{children}</View>
   );
 };
 
@@ -11,8 +12,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     width: "100%",
-    paddingLeft: 16,
-    paddingRight: 16,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     backgroundColor: "#fff",

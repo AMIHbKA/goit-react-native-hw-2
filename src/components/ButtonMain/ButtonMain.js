@@ -1,4 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { pixels } from "../../utility/adptivePixels";
 
 export const ButtonMain = (props) => {
   return (
@@ -10,13 +11,14 @@ export const ButtonMain = (props) => {
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: 16,
-    paddingHorizontal: 32,
+    paddingVertical: pixels.height[16],
+    paddingHorizontal: pixels.width[32],
     borderRadius: 100,
     backgroundColor: "#FF6C00",
   },
   buttonText: {
     textAlign: "center",
     color: "#fff",
+    fontSize: pixels.height[16],
   },
 });

@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text } from "react-native";
+import { pixels } from "../../utility/adptivePixels";
 
 export const ButtonLink = ({ text, style }) => {
   return (
@@ -8,5 +9,5 @@ export const ButtonLink = ({ text, style }) => {
   );
 };
 const styles = StyleSheet.create({
-  text: { color: "#1B4371" },
+  text: { color: "#1B4371", fontSize: pixels.height[16] },
 });

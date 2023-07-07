@@ -1,14 +1,7 @@
-import {
-  Image,
-  Pressable,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { AddPhotoIcon, DelPhotoIcon } from "../UI/icons";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
-import { pixels } from "../../utility/adptivePixels";
 
 export const Avatar = () => {
   const [image, setImage] = useState(null);
@@ -31,30 +24,23 @@ export const Avatar = () => {
   return (
     <View style={styles.container}>
       <Image style={styles.photo} source={{ uri: image }}></Image>
-      <Pressable
+      <TouchableOpacity
         style={styles.buttonAdd}
         onPress={image ? handleDelPress : handleAddPress}
       >
-        {image ? (
-          <DelPhotoIcon />
-        ) : (
-          <AddPhotoIcon width={pixels.width[37]} height={pixels.width[37]} />
-        )}
-      </Pressable>
+        {image ? <DelPhotoIcon /> : <AddPhotoIcon />}
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    paddingBottom: pixels.width[35],
-  },
+  container: { alignItems: "center" },
   photo: {
     position: "absolute",
-    top: -pixels.width[60],
-    height: pixels.width[120],
-    width: pixels.width[120],
+    top: -60,
+    height: 120,
+    width: 120,
     borderRadius: 16,
     backgroundColor: "#F6F6F6",
     alignSelf: "center",
@@ -62,10 +48,14 @@ const styles = StyleSheet.create({
   buttonAdd: {
     justifyContent: "center",
     alignItems: "center",
-    top: pixels.width[15],
-    left: pixels.width[60],
-    width: pixels.width[25],
-    height: pixels.width[25],
+    top: 15,
+    left: 60,
+    width: 25,
+    height: 25,
     borderRadius: 20,
+  },
+  border: {
+    borderWidth: 2,
+    borderColor: "black",
   },
 });
