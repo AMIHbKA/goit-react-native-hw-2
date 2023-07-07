@@ -13,8 +13,8 @@ export default function App() {
     <>
       <StatusBar />
       {/* <RegistrationScreen /> */}
-      {/* <RegistrationScreenAdaptive /> */}
-      <LoginScreenAdaptive />
+      <RegistrationScreenAdaptive />
+      {/* <LoginScreenAdaptive /> */}
       {/* <Background /> */}
       {/* <LoginScreen /> */}
       {/* <PostsScreen /> */}

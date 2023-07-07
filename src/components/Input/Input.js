@@ -22,7 +22,9 @@ export const Input = (props) => {
     <View>
       <TextInput {...textInputProps} secureTextEntry={!showPassword} />
       <Pressable onPress={handleShowPassword}>
-        <Text style={styles.buttonShowPassword}>Показати</Text>
+        <Text style={styles.buttonShowPassword}>
+          {!showPassword ? "Показати" : "Приховати"}
+        </Text>
       </Pressable>
     </View>
   ) : (
