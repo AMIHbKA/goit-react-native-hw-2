@@ -1,12 +1,4 @@
-import {
-  Dimensions,
-  Image,
-  KeyboardAvoidingView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
 import { Avatar } from "../../components/Avatar/Avatar";
 import Background from "../../components/Background/Background";
 import { ButtonLink } from "../../components/ButtonLink/ButtonLink";

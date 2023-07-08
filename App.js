@@ -7,8 +7,8 @@ export default function App() {
   return (
     <>
       <StatusBar />
-      <RegistrationScreenAdaptive />
-      {/* <LoginScreenAdaptive /> */}
+      {/* <RegistrationScreenAdaptive /> */}
+      <LoginScreenAdaptive />
       {/* <PostsScreen /> */}
     </>
   );
